@@ -7,10 +7,17 @@ import {
 function issues (state = {}, action) {
   switch (action.type) {
     case ADD_ISSUE:
-    case UPDATE_ISSUE:
       return {
         ...state,
         ...{ [action.payload.id]: action.payload }
+      }
+    case UPDATE_ISSUE:
+      return {
+        ...state,
+        ...{ [action.payload.id]: {
+          ...state[action.payload.id],
+          ...action.payload
+        } }
       }
     case REMOVE_ISSUE:
       const newState = { ...state }
