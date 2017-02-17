@@ -4,7 +4,15 @@
   "main": "build/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir build --ignore tests"
+    "build": "babel src --out-dir build --ignore test,spec.js,test.js"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "expect",
+      "it",
+      "test"
+    ]
   },
   "dependencies": {},
   "devDependencies": {

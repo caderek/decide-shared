@@ -10,15 +10,12 @@ function issues (state = {}, action) {
     case UPDATE_ISSUE:
       return {
         ...state,
-        ...{ issues: { ...state.issues, ...{ [action.payload.id]: action.payload } } }
+        ...{ [action.payload.id]: action.payload }
       }
     case REMOVE_ISSUE:
-      const issues = state.issues
-      delete issues[action.payload.id]
-      return {
-        ...state,
-        ...{ issues }
-      }
+      const newState = { ...state }
+      delete newState[action.payload.id]
+      return newState
     default:
       return state
   }
