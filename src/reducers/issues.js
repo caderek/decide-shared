@@ -12,17 +12,21 @@ function issues (state = {}, action) {
         ...{ [action.payload.id]: { ...action.payload, author: action.user } }
       }
     case UPDATE_ISSUE:
-      return {
-        ...state,
-        ...{ [action.payload.id]: {
-          ...state[action.payload.id],
-          ...action.payload
-        } }
-      }
+      return action.user === state[action.payload.id].author
+        ? {
+          ...state,
+          ...{ [action.payload.id]: {
+            ...state[action.payload.id],
+            ...action.payload
+          } }
+        }
+        : state
     case REMOVE_ISSUE:
       const newState = { ...state }
       delete newState[action.payload.id]
-      return newState
+      return action.user === state[action.payload.id].author
+        ? newState
+        : state
     default:
       return state
   }
