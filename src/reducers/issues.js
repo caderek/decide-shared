@@ -9,7 +9,7 @@ function issues (state = {}, action) {
     case ADD_ISSUE:
       return {
         ...state,
-        ...{ [action.payload.id]: action.payload }
+        ...{ [action.payload.id]: { ...action.payload, author: action.user } }
       }
     case UPDATE_ISSUE:
       return {
