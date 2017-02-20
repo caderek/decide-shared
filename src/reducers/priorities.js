@@ -8,6 +8,8 @@ function priorities (state = {}, action) {
         ...state,
         ...{ [id]: { ...action.payload, author: action.user } }
       }
+    default:
+      return state
   }
 }
 
