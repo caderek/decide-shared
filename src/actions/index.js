@@ -9,7 +9,9 @@ export const addIssue = (title, description) => ({
   payload: {
     id: null,
     title,
-    description
+    description,
+    createdAt: null,
+    updatedAt: null
   }
 })
 
@@ -18,7 +20,8 @@ export const updateIssue = (id, title, description) => ({
   payload: {
     id,
     title,
-    description
+    description,
+    updatedAt: null
   }
 })
 
@@ -33,6 +36,7 @@ export const addPriority = (issueId, priority) => ({
   type: ADD_PRIORITY,
   payload: {
     issueId,
-    priority
+    priority,
+    updatedAt: null
   }
 })
