@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir build --ignore test,spec.js,test.js",
-    "test": ""
+    "test": "jest"
   },
   "standard": {
     "globals": [

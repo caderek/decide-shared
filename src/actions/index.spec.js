@@ -2,9 +2,11 @@ import {
   ADD_ISSUE,
   UPDATE_ISSUE,
   REMOVE_ISSUE,
+  ADD_PRIORITY,
   addIssue,
   updateIssue,
-  removeIssue
+  removeIssue,
+  addPriority
 } from './'
 
 test('addIssue produces correct action', () => {
@@ -15,7 +17,9 @@ test('addIssue produces correct action', () => {
     payload: {
       id: null,
       title,
-      description
+      description,
+      createdAt: null,
+      updatedAt: null
     }
   }
   const actual = addIssue(title, description)
@@ -32,10 +36,11 @@ test('updateIssue produces correct action', () => {
     payload: {
       id,
       title,
-      description
+      description,
+      updatedAt: null
     }
   }
-  const actual = updateIssue(title, description)
+  const actual = updateIssue(id, title, description)
 
   expect(actual).toEqual(expected)
 })
@@ -49,6 +54,23 @@ test('removeIssue produces correct action', () => {
     }
   }
   const actual = removeIssue(id)
+
+  expect(actual).toEqual(expected)
+})
+
+test('addPriority produces correct action', () => {
+  const issueId = 'issue-id'
+  const priority = 3
+
+  const expected = {
+    type: ADD_PRIORITY,
+    payload: {
+      issueId,
+      priority,
+      updatedAt: null
+    }
+  }
+  const actual = addPriority(issueId, priority)
 
   expect(actual).toEqual(expected)
 })

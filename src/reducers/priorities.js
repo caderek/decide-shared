@@ -1,16 +1,15 @@
+import createReducer from '../createReducer'
 import { ADD_PRIORITY } from '../actions'
 
-function priorities (state = {}, action) {
-  switch (action.type) {
-    case ADD_PRIORITY:
-      const id = `${action.payload.issueId}.${action.user}`
-      return {
-        ...state,
-        ...{ [id]: { ...action.payload, author: action.user } }
-      }
-    default:
-      return state
+export const cases = {
+  [ADD_PRIORITY] (state, payload, user) {
+    const id = `${payload.issueId}.${user}`
+
+    return {
+      ...state,
+      ...{ [id]: { ...payload, author: user } }
+    }
   }
 }
 
-export default priorities
+export default createReducer(cases)

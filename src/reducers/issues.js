@@ -1,35 +1,38 @@
+import createReducer from '../createReducer'
 import {
   ADD_ISSUE,
   UPDATE_ISSUE,
   REMOVE_ISSUE
 } from '../actions'
 
-function issues (state = {}, action) {
-  switch (action.type) {
-    case ADD_ISSUE:
-      return {
+export const cases = {
+  [ADD_ISSUE] (state, payload, user) {
+    return {
+      ...state,
+      ...{ [payload.id]: { ...payload, author: user } }
+    }
+  },
+
+  [UPDATE_ISSUE] (state, payload, user) {
+    return user === state[payload.id].author
+      ? {
         ...state,
-        ...{ [action.payload.id]: { ...action.payload, author: action.user } }
+        ...{ [payload.id]: {
+          ...state[payload.id],
+          ...payload
+        } }
       }
-    case UPDATE_ISSUE:
-      return action.user === state[action.payload.id].author
-        ? {
-          ...state,
-          ...{ [action.payload.id]: {
-            ...state[action.payload.id],
-            ...action.payload
-          } }
-        }
-        : state
-    case REMOVE_ISSUE:
-      const newState = { ...state }
-      delete newState[action.payload.id]
-      return action.user === state[action.payload.id].author
-        ? newState
-        : state
-    default:
-      return state
+      : state
+  },
+
+  [REMOVE_ISSUE] (state, payload, user) {
+    const newState = { ...state }
+    delete newState[payload.id]
+
+    return user === state[payload.id].author
+      ? newState
+      : state
   }
 }
 
-export default issues
+export default createReducer(cases)
