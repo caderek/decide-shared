@@ -1,6 +1,7 @@
 import * as actions from './actions'
 import issues from './reducers/issues'
 import priorities from './reducers/priorities'
+import createReducer from './createReducer'
 
 const reducers = {
   issues,
@@ -9,5 +10,6 @@ const reducers = {
 
 export {
   actions,
-  reducers
+  reducers,
+  createReducer
 }
