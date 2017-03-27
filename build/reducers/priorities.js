@@ -3,25 +3,25 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.cases = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createReducer = require('../createReducer');
+
+var _createReducer2 = _interopRequireDefault(_createReducer);
+
 var _actions = require('../actions');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function priorities() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments[1];
+var cases = exports.cases = _defineProperty({}, _actions.ADD_PRIORITY, function (state, payload, user) {
+  var id = payload.issueId + '.' + user;
 
-  switch (action.type) {
-    case _actions.ADD_PRIORITY:
-      var id = action.payload.issueId + '.' + action.user;
-      return _extends({}, state, _defineProperty({}, id, _extends({}, action.payload, { author: action.user })));
-    default:
-      return state;
-  }
-}
+  return _extends({}, state, _defineProperty({}, id, _extends({}, payload, { author: user })));
+});
 
-exports.default = priorities;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9yZWR1Y2Vycy9wcmlvcml0aWVzLmpzIl0sIm5hbWVzIjpbInByaW9yaXRpZXMiLCJzdGF0ZSIsImFjdGlvbiIsInR5cGUiLCJpZCIsInBheWxvYWQiLCJpc3N1ZUlkIiwidXNlciIsImF1dGhvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTs7OztBQUVBLFNBQVNBLFVBQVQsR0FBeUM7QUFBQSxNQUFwQkMsS0FBb0IsdUVBQVosRUFBWTtBQUFBLE1BQVJDLE1BQVE7O0FBQ3ZDLFVBQVFBLE9BQU9DLElBQWY7QUFDRTtBQUNFLFVBQU1DLEtBQVFGLE9BQU9HLE9BQVAsQ0FBZUMsT0FBdkIsU0FBa0NKLE9BQU9LLElBQS9DO0FBQ0EsMEJBQ0tOLEtBREwsc0JBRVFHLEVBRlIsZUFFa0JGLE9BQU9HLE9BRnpCLElBRWtDRyxRQUFRTixPQUFPSyxJQUZqRDtBQUlGO0FBQ0UsYUFBT04sS0FBUDtBQVJKO0FBVUQ7O2tCQUVjRCxVIiwiZmlsZSI6InByaW9yaXRpZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBRERfUFJJT1JJVFkgfSBmcm9tICcuLi9hY3Rpb25zJ1xuXG5mdW5jdGlvbiBwcmlvcml0aWVzIChzdGF0ZSA9IHt9LCBhY3Rpb24pIHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgQUREX1BSSU9SSVRZOlxuICAgICAgY29uc3QgaWQgPSBgJHthY3Rpb24ucGF5bG9hZC5pc3N1ZUlkfS4ke2FjdGlvbi51c2VyfWBcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICAuLi57IFtpZF06IHsgLi4uYWN0aW9uLnBheWxvYWQsIGF1dGhvcjogYWN0aW9uLnVzZXIgfSB9XG4gICAgICB9XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZVxuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IHByaW9yaXRpZXNcbiJdfQ==
+exports.default = (0, _createReducer2.default)(cases);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9yZWR1Y2Vycy9wcmlvcml0aWVzLmpzIl0sIm5hbWVzIjpbImNhc2VzIiwic3RhdGUiLCJwYXlsb2FkIiwidXNlciIsImlkIiwiaXNzdWVJZCIsImF1dGhvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUE7Ozs7QUFDQTs7Ozs7O0FBRU8sSUFBTUEsNkVBQ0tDLEtBREwsRUFDWUMsT0FEWixFQUNxQkMsSUFEckIsRUFDMkI7QUFDcEMsTUFBTUMsS0FBUUYsUUFBUUcsT0FBaEIsU0FBMkJGLElBQWpDOztBQUVBLHNCQUNLRixLQURMLHNCQUVRRyxFQUZSLGVBRWtCRixPQUZsQixJQUUyQkksUUFBUUgsSUFGbkM7QUFJRCxDQVJVLENBQU47O2tCQVdRLDZCQUFjSCxLQUFkLEMiLCJmaWxlIjoicHJpb3JpdGllcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjcmVhdGVSZWR1Y2VyIGZyb20gJy4uL2NyZWF0ZVJlZHVjZXInXG5pbXBvcnQgeyBBRERfUFJJT1JJVFkgfSBmcm9tICcuLi9hY3Rpb25zJ1xuXG5leHBvcnQgY29uc3QgY2FzZXMgPSB7XG4gIFtBRERfUFJJT1JJVFldIChzdGF0ZSwgcGF5bG9hZCwgdXNlcikge1xuICAgIGNvbnN0IGlkID0gYCR7cGF5bG9hZC5pc3N1ZUlkfS4ke3VzZXJ9YFxuXG4gICAgcmV0dXJuIHtcbiAgICAgIC4uLnN0YXRlLFxuICAgICAgLi4ueyBbaWRdOiB7IC4uLnBheWxvYWQsIGF1dGhvcjogdXNlciB9IH1cbiAgICB9XG4gIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgY3JlYXRlUmVkdWNlcihjYXNlcylcbiJdfQ==
