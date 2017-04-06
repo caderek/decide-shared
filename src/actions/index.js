@@ -15,7 +15,7 @@ export const addIssue = (title, description) => ({
   }
 })
 
-export const updateIssue = (id, title, description) => ({
+export const updateIssue = (title, description, id) => ({
   type: UPDATE_ISSUE,
   payload: {
     id,

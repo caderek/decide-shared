@@ -40,7 +40,7 @@ test('updateIssue produces correct action', () => {
       updatedAt: null
     }
   }
-  const actual = updateIssue(id, title, description)
+  const actual = updateIssue(title, description, id)
 
   expect(actual).toEqual(expected)
 })
